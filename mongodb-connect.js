@@ -13,6 +13,7 @@ console.log(name); //strum
 var {namex} = user;
 console.log(name); //undeined
 
+//如果没有 Strum0306会自动创建
 MongoClient.connect('mongodb://localhost:27017/Strum0306',(err,db)=>{
 
     if(err){
