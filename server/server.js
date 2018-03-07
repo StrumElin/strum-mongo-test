@@ -38,6 +38,26 @@ app.post('/todos',(req,res)=>{
     })
 });
 
+app.get('/todos',(req,res)=>{
+
+    Todo.find().then((todos)=>{
+
+        res.status(200).send({
+            todos,
+            statusCode:1
+        })
+
+    },(e)=>{
+
+        res.status(400).send({
+            statusCode:0,
+            msg:'cant find todo'
+        })
+
+    })
+
+});
+
 app.listen(port,()=>{
     console.log('starting node server port 3000');
 })

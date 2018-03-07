@@ -4,17 +4,28 @@
 
 var expect = require('expect');
 
-var request = require('supertest');
+var request = require('supertest'); //专门为express而生
 
 var {app} = require('./../server');
 
 var {Todo} =  require('./../models/todoModel')
 
+const todos = [{
+    text:'first test todo',
+},{
+    text:'second test todo'
+}]
+
 //如果测试之前 删除所有的Todo数据
 beforeEach((done)=>{
-   Todo.remove({}).then(()=>{
-       done();
 
+   Todo.remove({}).then(()=>{
+
+      return  Todo.insertMany(todos);
+
+   }).then(()=>{
+       // insertMany的 promise回调
+       done();
    })
 });
 
