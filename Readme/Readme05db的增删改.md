@@ -49,9 +49,13 @@ collection.findOneAndDelete({rich:false}).then((result)=>{
 
 findOneAndUpdate(filter,update,options,callback) 返回promise 如果没有 callback
 
-update: {$inc:{age:2}}, 表示对原来属性 age的值 +2
-        {$set:{name:'strum'}} 将原来属性 name 改为strum
-        {$rename:{work:'swork'}}
+update:
+https://docs.mongodb.com/manual/reference/operator/update/min/
+{$inc:{age:2}}, 表示对原来属性 age的值 +2
+{$set:{name:'strum'}} 将原来属性 name 改为strum
+{$rename:{work:'swork'}}
+
+
 optional
 Optional settings.
 Name	         Type	Default  	Description
